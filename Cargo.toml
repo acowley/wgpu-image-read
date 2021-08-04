@@ -1,0 +1,36 @@
+[package]
+name = "image-read"
+version = "0.1.0"
+edition = "2018"
+resolver = "2"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+log = "0.4"
+env_logger = "0.8.2"
+anyhow = "1.0.40"
+bytemuck = "1.5.0"
+pollster = "0.2"
+image = "0.23.12"
+naga = { version = "=0.5.0", features = ["wgsl-in", "spv-in"] }
+wgpu = { version = "=0.9.0", features = ["spirv", "trace"] }
+
+[patch.crates-io]
+naga.path = 'naga'
+wgpu.path = 'wgpu/wgpu'
+wgpu-core.path = 'wgpu/wgpu-core'
+wgpu-types.path = 'wgpu/wgpu-types'
+wgpu-hal.path = 'wgpu/wgpu-hal'
+
+[patch.'https://github.com/gfx-rs/naga']
+naga.path = 'naga'
+
+[patch.'https://github.com/gfx-rs/wgpu']
+wgpu.path = 'wgpu/wgpu'
+wgpu-core.path = 'wgpu/wgpu-core'
+wgpu-types.path = 'wgpu/wgpu-types'
+wgpu-hal.path = 'wgpu/wgpu-hal'
+
+[patch.'https://github.com/gfx-rs/wgpu-rs']
+wgpu.path = 'wgpu/wgpu'

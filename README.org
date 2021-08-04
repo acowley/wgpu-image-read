@@ -1,0 +1,11 @@
+#+title: Two Approaches to Initializing a Texture with =wgpu=
+
+Usage:
+
+#+begin_src bash
+RUST_LOG=image_read=info cargo run images/input-file.jpeg
+#+end_src
+
+The test program loads an image file and copies its contents to a ~wgpu::Texture~ two different ways, and then reads back the texture data to see if it survived the round trip.
+
+On Linux with an AMD GPU and =wgpu='s Vulkan backend, the round trip fails if I create a ~wgpu::Buffer~ initialized with the image data, then copy that to a texture with ~wgpu::CommandEncoder::copy_buffer_to_texture~. The round trip succeeds if I only create the texture and use ~wgpu::Queue::write_texture~ to initialize it.

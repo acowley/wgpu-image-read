@@ -1,0 +1,9 @@
+[submodule "wgpu"]
+	path = wgpu
+	url = git@github.com:acowley/wgpu.git
+[submodule "gfx"]
+	path = gfx
+	url = git@github.com:acowley/gfx.git
+[submodule "naga"]
+	path = naga
+	url = git@github.com:acowley/naga.git
